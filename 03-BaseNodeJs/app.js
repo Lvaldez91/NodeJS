@@ -5,9 +5,9 @@ const {createFile3} = require('./helpers/multiplicar');
 
 const argv = require('yargs')
 .option('b', {
-    alias:'base',
-    type: 'number',
-    demandOption: true
+    alias:('base:5','limite:false'),
+    type: ('number','bolean'),
+    demandOption: (true, true)
 })
 .check((argv, options) => {
     if(isNaN(argv.b)){
