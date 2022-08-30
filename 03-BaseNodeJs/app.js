@@ -5,9 +5,15 @@ const {createFile3} = require('./helpers/multiplicar');
 
 const argv = require('yargs')
 .option('b', {
-    alias:('base:5','limite:false'),
-    type: ('number','bolean'),
-    demandOption: (true, true)
+    alias:'base',
+    type: 'number',
+    demandOption: true
+})
+.option('l', {
+    alias:'listar',
+    type: 'boolean',
+    demandOption: true,
+    default: false
 })
 .check((argv, options) => {
     if(isNaN(argv.b)){
@@ -20,8 +26,7 @@ const argv = require('yargs')
 console.clear();
 
 console.log(process.argv);
-// const [, , arg3] = process.argv;
-// const [,base=0] = arg3.split('=');
-createFile3s(argv.b)
+
+createFile3(argv.b, argv.l)
     .then(nameFile => console.log(nameFile,'creado'))
     .catch(err => console.log(err));

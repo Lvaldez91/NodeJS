@@ -36,7 +36,7 @@ const createFile2 = (base = 5) => {
 }
 
 // forma 3
-const createFile3 = async(base = 5) => {
+const createFile3 = async(base = 5,limite=false) => {
     try{
         console.clear();
         console.log('=======================');
@@ -50,7 +50,9 @@ const createFile3 = async(base = 5) => {
         }
         console.log(`Archivo generado correctamente!!`);
         fs.writeFileSync(`tabla-${base}.txt`,salida);
-        console.log(salida);
+        if (limite){
+            console.log(salida);
+        }
     } catch(err){
         console.log(err);
     }
