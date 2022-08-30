@@ -1,12 +1,27 @@
 
 const {createFile3} = require('./helpers/multiplicar');
-console.clear();
-console.log(process.argv);
-const [, , arg3] = process.argv;
-const [,base=0] = arg3.split('=');
- console.log(base);
-//const base = 7;
 
-createFile3(base)
+//const argv = require('yargs').argv;
+
+const argv = require('yargs')
+.option('b', {
+    alias:'base',
+    type: 'number',
+    demandOption: true
+})
+.check((argv, options) => {
+    if(isNaN(argv.b)){
+        throw 'La base tiene que ser un número'
+    }
+    return true;
+})
+.argv;
+
+console.clear();
+
+console.log(process.argv);
+// const [, , arg3] = process.argv;
+// const [,base=0] = arg3.split('=');
+createFile3s(argv.b)
     .then(nameFile => console.log(nameFile,'creado'))
     .catch(err => console.log(err));
