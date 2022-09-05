@@ -10,13 +10,15 @@ const createFile3 = async(base = 5,limite=false, hasta = 10) => {
         console.log(colors.brightRed('======================='));
 
         let salida = '';
+        let consola = '';
         for (let i = 0; i <= hasta; i++){
             //console.log(`${base} x ${i} = ${ base * i}`);
             salida += `${colors.brightCyan(base)} ${colors.america('x')} ${colors.yellow(i)} = ${ colors.bold.blue(base * i)} \n`;
+            consola += `${base} ${'x'} ${i} = ${base * i} \n`;
         }
         console.log(`Archivo generado correctamente!!`);
         console.log(salida);
-        fs.writeFileSync(`tabla-${base}.txt`,salida);
+        fs.writeFileSync(`./outfile/tabla-${base}.txt`,consola);
         return `Tabla ${base}.txt`;
     } catch(err){
         console.log(err);
