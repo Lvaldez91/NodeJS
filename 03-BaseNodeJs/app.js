@@ -5,7 +5,7 @@ console.clear();
 
 console.log(process.argv);
 
-createFile3(argv.b, argv.l)
+createFile3(argv.b, argv.l, argv.h)
     .then(nameFile => console.log(colors.brightCyan(nameFile),colors.rainbow('creado')))
     .catch(err => console.log(err));
 

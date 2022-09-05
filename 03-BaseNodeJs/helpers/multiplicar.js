@@ -2,7 +2,7 @@ const fs = require('fs');
 const colors = require('colors');
 
 // forma 3
-const createFile3 = async(base = 5,limite=false) => {
+const createFile3 = async(base = 5,limite=false, hasta = 10) => {
     try{
         console.clear();
         console.log(colors.brightRed('======================='));
@@ -10,7 +10,7 @@ const createFile3 = async(base = 5,limite=false) => {
         console.log(colors.brightRed('======================='));
 
         let salida = '';
-        for (let i = 0; i<=10; i++){
+        for (let i = 0; i <= hasta; i++){
             //console.log(`${base} x ${i} = ${ base * i}`);
             salida += `${colors.brightCyan(base)} ${colors.america('x')} ${colors.yellow(i)} = ${ colors.bold.blue(base * i)} \n`;
         }
