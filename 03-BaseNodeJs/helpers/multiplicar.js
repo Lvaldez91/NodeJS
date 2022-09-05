@@ -1,58 +1,23 @@
 const fs = require('fs');
-
-const createFile = (base = 5) => {
-    console.clear();
-    console.log('=======================');
-    console.log(`    Tabla del ${base}   `);
-    console.log('=======================');
-
-    let salida = '';
-    for (let i = 0; i<=10; i++){
-        //console.log(`${base} x ${i} = ${ base * i}`);
-        salida += `${base} x ${i} = ${ base * i} \n`;
-    }
-    console.log(`Archivo generado correctamente!!`);
-    fs.writeFileSync(`tabla-${base}.txt`,salida);
-    console.log(salida);
-}
-
-// forma 2
-const createFile2 = (base = 5) => {
-    return new Promise((resolve, reject) =>{
-            console.clear();
-            console.log('=======================');
-            console.log(`    Tabla del ${base}   `);
-            console.log('=======================');
-
-            let salida = '';
-            for (let i = 0; i<=10; i++){
-                //console.log(`${base} x ${i} = ${ base * i}`);
-                salida += `${base} x ${i} = ${ base * i} \n`;
-            }
-            resolve(`Archivo generado correctamente!!`);
-            fs.writeFileSync(`tabla-${base}.txt`,salida);
-            console.log(salida);
-    });
-}
+const colors = require('colors');
 
 // forma 3
 const createFile3 = async(base = 5,limite=false) => {
     try{
         console.clear();
-        console.log('=======================');
-        console.log(`    Tabla del ${base}   `);
-        console.log('=======================');
+        console.log(colors.brightRed('======================='));
+        console.log(colors.rainbow(`    Tabla del ${base}   `));
+        console.log(colors.brightRed('======================='));
 
         let salida = '';
         for (let i = 0; i<=10; i++){
             //console.log(`${base} x ${i} = ${ base * i}`);
-            salida += `${base} x ${i} = ${ base * i} \n`;
+            salida += `${colors.brightCyan(base)} ${colors.america('x')} ${colors.yellow(i)} = ${ colors.bold.blue(base * i)} \n`;
         }
         console.log(`Archivo generado correctamente!!`);
+        console.log(salida);
         fs.writeFileSync(`tabla-${base}.txt`,salida);
-        if (limite){
-            console.log(salida);
-        }
+        return `Tabla ${base}.txt`;
     } catch(err){
         console.log(err);
     }
