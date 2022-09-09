@@ -1,6 +1,9 @@
 
 class Tareas {
-    _listado = {};
+
+    constructor(_listado){
+        this._listado = _listado;
+    }
 }
 
 module.exports = Tareas;
