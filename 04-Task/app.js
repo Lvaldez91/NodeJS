@@ -13,19 +13,21 @@ console.clear();
 const main = async() => {
     //console.log('Hello World');
     let opt = '';
+    const tareas = new Tareas();
     // ejecuta al menos una ves mientras se cumpla la condición
     do {
         opt = await inquirerMenu();
-        console.log(opt('opcion'));
+        console.log(opt['opcion']);
         // const Tasks = new Tareas();
         // const Task = new Tarea('comprar comida');
-        switch(opt('opcion')){
+        switch(opt['opcion']){
             case '1':
                 const descripcion = await leerInput('Descripción: ');
-                console.log(descripcion);
+                tareas.crearTareas(descripcion);
+                //console.log(descripcion);
                 break;
             case '2':
-                console.log('No defined');
+                console.log(tareas.listArr);
                 break;
             }
         //console.log(tarea);

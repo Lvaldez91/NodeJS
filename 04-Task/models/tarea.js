@@ -1,9 +1,8 @@
-const {v4: uuid} = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
 class Tarea {
-
-    constructor(uuid, desc, estatus) {
-        this.id = uuid;
+    constructor(desc) {
+        this.id = uuidv4();
         this.desc = desc;
     }
 }
