@@ -3,7 +3,7 @@ const Tarea = require("./tarea");
 class Tareas {
 
     get listArr(){
-        const listado = {};
+        const listado = [];
         Object.keys(this._listado).forEach(key => {
             console.log(key);
             const tarea = this._listado[key];
