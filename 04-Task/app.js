@@ -15,30 +15,25 @@ const main = async() => {
     //console.log('Hello World');
     let opt = '';
     const tareas = new Tareas();
-    const tarasDB = leerArchivo();
+    const tareasDB = leerArchivo();
 
-    if(tarasDB){
-        console.log('luz' + tareas.cargarTareasFromArray());
-        await pausa();
+    if(tareasDB){
+        console.log(tareas.cargarTareasFromArray(tareasDB));
     }
-        // ejecuta al menos una ves mientras se cumpla la condición
+
+    // ejecuta al menos una ves mientras se cumpla la condición
     do {
         opt = await inquirerMenu();
-        console.log(opt['opcion']);
-        // const Tasks = new Tareas();
-        // const Task = new Tarea('comprar comida');
         switch(opt['opcion']){
             case '1':
                 const descripcion = await leerInput('Descripción: ');
                 tareas.crearTareas(descripcion);
-                //console.log(descripcion);
+                guardaDB(tareas.listArr);
                 break;
             case '2':
-                console.log(tareas.listArr);
+                tareas.listarTareas();
                 break;
             }
-        //console.log(tarea);
-        guardaDB(tareas.listArr);
         await pausa();
     } while (opt !== '0');
 };

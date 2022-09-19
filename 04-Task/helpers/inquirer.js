@@ -1,6 +1,5 @@
 require('colors');
 const inquirer = require('inquirer');
-//import inquirer from 'inquirer';
 
 const menuOpts = [
     {
@@ -69,7 +68,7 @@ const leerInput = async(message) => {
             if(value.length === 0){
                 return 'Por favor ingrese un valor';
             }
-            return true;
+             return true;
         }
     }];
     const {desc} = await inquirer.prompt(question);
