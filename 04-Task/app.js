@@ -31,7 +31,13 @@ const main = async() => {
                 guardaDB(tareas.listArr);
                 break;
             case '2':
-                tareas.listarTareas();
+                tareas.listarTareas('all');
+                break;
+            case '3':
+                tareas.listarTareas('Completada');
+                break;
+            case '4':
+                tareas.listarTareas('Pendiente');
                 break;
             }
         await pausa();
