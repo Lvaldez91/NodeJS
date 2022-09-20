@@ -1,7 +1,9 @@
+const { default: Choice } = require("inquirer/lib/objects/choice");
+const { default: Choices } = require("inquirer/lib/objects/choices");
 const Tarea = require("./tarea");
 
 class Tareas {
-    
+
     get listArr(){
         const listado = [];
         Object.keys(this._listado).forEach(key => {
@@ -13,6 +15,14 @@ class Tareas {
 
     constructor(){
         this._listado = {};
+    }
+
+    borrarTarea( id = '' ) {
+
+        if ( this._listado[id] ) {
+            delete this._listado[id];
+        }
+
     }
 
     cargarTareasFromArray(tareas = []) {
