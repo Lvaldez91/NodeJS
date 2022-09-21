@@ -1,5 +1,3 @@
-const { default: Choice } = require("inquirer/lib/objects/choice");
-const { default: Choices } = require("inquirer/lib/objects/choices");
 const Tarea = require("./tarea");
 
 class Tareas {
@@ -46,10 +44,25 @@ class Tareas {
 
             if(estatus == 'all'){
                 console.log(`${ idx } ${ desc } :: ${ estado }`);
-            } else if (estatus == 'Completada' && completadoEn == 'Completada'){
+            } else if (estatus == 'Completada' && (completadoEn == 'Completada' || completadoEn != null)){
                 console.log(`${ idx } ${ desc } :: ${ estado }`);
             } else if (estatus == 'Pendiente' && (completadoEn == 'Pendiente' || completadoEn == null)){
                 console.log(`${ idx } ${ desc } :: ${ estado }`);
+            }
+        });
+    }
+
+    toggleCompletadas(ids=[]){
+        ids.forEach( id => {
+            const tarea = this._listado[id];
+            if ( !tarea.completadoEn || tarea.completadoEn == null ) {
+                tarea.completadoEn = new Date().toISOString();
+            }
+        });
+
+        this.listArr.forEach(tarea => {
+            if ( !ids.includes(tarea.id) ) {
+                this._listado[tarea.id].completadoEn = null;
             }
         });
     }
