@@ -1,5 +1,3 @@
-const { readlink } = require('fs');
-
 require('colors');
 
 const mostrarMenu = () => {
@@ -24,7 +22,7 @@ const mostrarMenu = () => {
         });
 
         // se dispara por un callBack que ejecuta despues de que termine
-        readline.question('\nSeleccione una opción: '.yellow, (opt) =>{
+        readline.question('\nSeleccione una opción: ', (opt) =>{
             readline.close();
             resolve(opt);
         });
