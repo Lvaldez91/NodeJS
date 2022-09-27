@@ -15,6 +15,7 @@ const main = async() => {
             case 1:
                 // See message
                 const cityInput = await readInput('City:');
+                await search.citys(cityInput);
                 console.log(cityInput);
                 // Search citys
 
@@ -41,3 +42,8 @@ const main = async() => {
 };
 
 main();
+
+// https://www.npmjs.com/package/request
+// https://www.npmjs.com/package/fetch
+// https://www.npmjs.com/package/axios
+// https://ww17.regres.in/

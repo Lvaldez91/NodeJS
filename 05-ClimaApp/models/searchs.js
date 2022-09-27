@@ -1,7 +1,7 @@
-
+const axios = require('axios');
 class Searchs {
 
-    historys = ['','','','',''];
+    // historys = ['','','','',''];
 
     constructor(){
         // TODO: read DataBase if exists
@@ -10,7 +10,8 @@ class Searchs {
 
     async citys(city = '') {
         // request http
-        console.log(city);
+        const resp = await axios.get('https://reqres.in/api/users?page=2');
+        console.log(resp);
 
         // return citys
         return [];
