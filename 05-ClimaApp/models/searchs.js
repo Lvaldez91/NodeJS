@@ -9,11 +9,16 @@ class Searchs {
     }
 
     async citys(city = '') {
-        // request http
-        const resp = await axios.get('https://reqres.in/api/users?page=2');
-        console.log(resp);
+        try{
+            // request http
+            const resp = await axios.get('https://reqres.in/api/users?page=2');
+            console.log(resp.data);
 
-        // return citys
+            // return citys
+        } catch(error){
+
+        }
+        
         return [];
     }
 }
