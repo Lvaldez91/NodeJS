@@ -1,4 +1,5 @@
 require('colors');
+require('dotenv').config();
 const {inqMenuOpc,pausa, readInput} = require('./helpers/inquirer');
 const Searchs = require('./models/searchs');
 
@@ -24,7 +25,7 @@ const main = async() => {
                 // weather
 
                 // I can see results
-                console.log('\nInformation od the city'.green);
+                console.log('\nInformation of the city'.green);
                 console.log('City: ',);
                 console.log('Latitude: ',);
                 console.log('Length: ',);
@@ -41,8 +42,8 @@ const main = async() => {
 
 };
 
-main();
-
+//main();
+console.log(process.env);
 // https://www.npmjs.com/package/request
 // https://www.npmjs.com/package/fetch
 // https://www.npmjs.com/package/axios
