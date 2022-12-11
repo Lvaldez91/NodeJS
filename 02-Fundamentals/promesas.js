@@ -44,7 +44,7 @@ const getSalario = () => {
 
         ( salario ) 
             ? resolve( salario )
-            : reject( `No existe salario con id ${ id }` );
+            : reject( `No existe salario con id ${ id }`);
     });
 }
 
