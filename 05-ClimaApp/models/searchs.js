@@ -9,7 +9,7 @@ class Busquedas {
     dbPath = './db/database.json';
 
     constructor() {
-        this.leerDB();
+        this.leerDB();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
     }
 
     get historialCapitalizado() {
@@ -18,9 +18,9 @@ class Busquedas {
             let palabras = lugar.split(' ');
             palabras = palabras.map( p => p[0].toUpperCase() + p.substring(1) );
 
-            return palabras.join(' ')
+            return palabras.join(' ');
 
-        })
+        });
     }
 
 

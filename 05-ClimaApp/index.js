@@ -34,7 +34,6 @@ const main = async() => {
                 console.log('Maximum: ',);
             break;
             case 2:
-
             break;
         }
         if(opts['opc']  !== 0) await pausa();
