@@ -8,7 +8,10 @@ app.set('view engine', 'hbs');
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-    res.render('home');
+    res.render('home',{
+        nombre: 'Lucero',
+        titulo: 'Inicio de NodeJS'
+    });
 });
 
 app.get('/generic', function (req, res) {
